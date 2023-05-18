@@ -8,18 +8,14 @@ function global:au_BeforeUpdate() {
 }
 
 function global:au_GetLatest {
- $latestRelease = Invoke-WebRequest $releases'/latest' -Headers @{"Accept"="application/json"}
- $latestRelease = ($latestRelease.Content | ConvertFrom-Json).tag_name
- $assets = 'https://github.com/Fndroid/clash_for_windows_pkg/releases/expanded_assets/'+$latestRelease
+ $latestRelease = ((Invoke-WebRequest $releases'/latest' -Headers @{"Accept"="application/json"}).Content | ConvertFrom-Json).tag_name
+ $assets = $releases+'/expanded_assets/'+$latestRelease
     $download_page = Invoke-WebRequest -Uri $assets -UseBasicParsing
 	
     $regex32 = 'ia32.exe$'
     $regex64 = 'Setup[\d.]+\.exe$'
-    $url32 = $download_page.links | Where-Object href -match $regex32 | Select-Object -First 1 -expand href
-    $url64 = $download_page.links | Where-Object href -match $regex64 | Select-Object -First 1 -expand href
-	
-    $url32 = -Join ('https://ghproxy.com/https://github.com', $url32)
-    $url64 = -Join ('https://ghproxy.com/https://github.com', $url64)
+    $url32 = -Join ('https://ghproxy.com/https://github.com',($download_page.links | Where-Object href -match $regex32 | Select-Object -First 1 -expand href))
+    $url64 = -Join ('https://ghproxy.com/https://github.com',($download_page.links | Where-Object href -match $regex64 | Select-Object -First 1 -expand href))
     $url32 -match 'releases/download/v?([\d.]+)/' | Out-Null
     $version = $matches[1]
 	
