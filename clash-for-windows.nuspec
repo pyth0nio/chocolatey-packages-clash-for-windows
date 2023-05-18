@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>clash-for-windows</id>
+    <version>0.20.23</version>
+    <packageSourceUrl>https://github.com/pyth0nio/chocolatey-packages-clash-for-windows</packageSourceUrl>
+    <owners>Python123</owners>
+    <title>Clash for Windows</title>
+    <authors>Fndroid</authors>
+    <projectUrl>https://github.com/Fndroid/clash_for_windows_pkg</projectUrl>
+    <iconUrl>https://cdn.jsdelivr.net/gh/pyth0nio/chocolatey-packages-clash-for-windows/icon.png</iconUrl>
+    <!-- <copyright>Year Software Vendor</copyright> -->
+    <licenseUrl>https://github.com/Dreamacro/clash/blob/master/LICENSE</licenseUrl>
+    <projectSourceUrl>https://github.com/Fndroid/clash_for_windows_pkg</projectSourceUrl>
+    <docsUrl>https://docs.cfw.lbyczf.com/</docsUrl>
+    <!--<mailingListUrl></mailingListUrl>-->
+    <bugTrackerUrl>https://github.com/Fndroid/clash_for_windows_pkg/issues</bugTrackerUrl>
+    <tags>clash v2ray shadowsocks http-proxy socks-proxy</tags>
+    <summary>A Windows GUI based on Clash</summary>
+    <description><![CDATA[A Windows/macOS/Linux GUI based on Clash and Electron.]]></description>
+    <releaseNotes>https://github.com/Fndroid/clash_for_windows_pkg/releases</releaseNotes>
+    <!--<dependencies>
+      <dependency id="" version="__MINIMUM_VERSION__" />
+      <dependency id="" version="[__EXACT_VERSION__]" />
+      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_INCLUSIVE]" />
+      <dependency id="" version="[_MIN_VERSION_INCLUSIVE, MAX_VERSION_EXCLUSIVE)" />
+      <dependency id="" />
+      <dependency id="chocolatey-core.extension" version="1.1.0" />
+    </dependencies>-->
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
